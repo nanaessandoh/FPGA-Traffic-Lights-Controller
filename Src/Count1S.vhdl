@@ -11,7 +11,7 @@ entity Count1S is
         cnt50M: out std_logic);
 end Count1S;
 
-architecture rtl of Count1S is
+architecture behav of Count1S is
   signal cnt: std_logic_vector(25 downto 0) := "00000000000000000000000000";
 begin
 
@@ -21,7 +21,7 @@ begin
     if (clk'event) and (clk = '1') then
 	if (en = '1') then
        if (cnt = "10111110101111000010000000") then
-       --   if (cnt = "00000000000000000000000100") then   -- Uncomment this line for testbench
+       --   if (cnt = "00000000000000000000000010") then   -- Uncomment this line for testbench
 	     cnt50M <= '1';
           cnt <= "00000000000000000000000000";
         else
@@ -32,4 +32,4 @@ begin
       end if;
   end process;
   
-end rtl;
+end behav;

@@ -8,7 +8,7 @@ entity test_traffic is
 
 end test_traffic;
 
-architecture rtl of test_traffic is
+architecture behav of test_traffic is
  
 component traffic_light 
   port( 
@@ -29,9 +29,13 @@ end component;
 	signal RLED: std_logic_vector (8 downto 0) := "000000000";
   	signal H1,H0,H4,H5: std_logic_vector(6 downto 0) := "0000000";
 begin
-
+	-- Port Map Decalration
 	T01: traffic_light port map(CLK, c_wait, nsl_green, ns_green, ns_red, ns_yellow, ewl_green, ew_green, ew_yellow, ew_red, RLED, H1, H0, H4, H5);
+	
+	-- Generate Clock
 	CLK <= not CLK after 0.5 ns;
+
+	-- Do Test
 	c_wait <= '0', '1' after 3 ns, '0' after 25 ns, '1' after 40 ns, '0' after 70 ns;
   
-end rtl;
+end behav;

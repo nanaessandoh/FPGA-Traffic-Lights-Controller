@@ -16,7 +16,7 @@ entity traffic_light is
 );
 end traffic_light;
 
-architecture rtl of traffic_light is
+architecture behav of traffic_light is
 
 	-- 1 Second Generator
   	component Count1S 
@@ -287,4 +287,4 @@ begin
 	SecH_4 : seven_segment_decoder port map (Cstate, HEX4);
 	SecH_5 : seven_segment_decoder port map ("0101", HEX5);
 
-end rtl;
+end behav;

@@ -8,7 +8,7 @@ entity seven_segment_decoder is
     );
 end seven_segment_decoder;
 
-architecture logic of seven_segment_decoder is
+architecture behav of seven_segment_decoder is
     begin
         -- first decoder
         HEX0(0) <= (not SW(3) and not SW(1) and (SW(2) xor SW(0))) or (SW(3) and SW(0) and (SW(2) xor SW(1)));
@@ -18,4 +18,4 @@ architecture logic of seven_segment_decoder is
         HEX0(4) <= (not SW(3) and SW(0)) or (not SW(1) and ((not SW(3) and SW(2))or (not SW(2) and SW(0))));
         HEX0(5) <= (not SW(3) and ((SW(1) and SW(0)) or (not SW(2) and (SW(1) or SW(0))))) or (SW(3) and SW(2) and not SW(1) and SW(0));
         HEX0(6) <= (not SW(3) and not SW(2) and not SW(1)) or (not SW(3) and SW(2) and SW(1) and SW(0)) or (SW(3) and SW(2) and not SW(1) and not SW(0));
-    end logic;
+    end behav;

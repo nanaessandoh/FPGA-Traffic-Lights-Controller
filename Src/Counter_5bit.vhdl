@@ -10,7 +10,7 @@ entity Counter5bit is
 	DIGIT1, DIGIT0: out std_logic_vector(3 downto 0));
 end Counter5bit;
 
-architecture rtl of Counter5bit is
+architecture behav of Counter5bit is
   signal CNT: std_logic_vector(4 downto 0) := UB;
 begin
 
@@ -58,4 +58,4 @@ begin
 
   end process;
   
-end rtl;
+end behav;
