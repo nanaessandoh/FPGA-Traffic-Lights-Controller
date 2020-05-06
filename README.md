@@ -20,6 +20,7 @@ Starting as the E-W lights turn red:
 Apart from these specification, two extra requirements are: 
 * Display the current state on the onboard seven-segment display.
 * Display the remaining time of the current state on the seven-segment displays.
+* The onboard LEDs are used to represent the respective light that need to be on in each state. 
 * Car waiting is represented by any of the onboard switches. 
 
 A RTL Structure of the design is
