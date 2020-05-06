@@ -26,8 +26,8 @@ A RTL Structure of the design is
 
     .
     ├── ...
-    ├── Traffic_light.vhdl   # Top Level Entity
-    │   ├── Count1S.vhdl                
+    ├── Traffic_light.vhdl      # Top Level Entity
+    │   ├── Count1S.vhdl        # Counter operating on the 50MHz clock to generate a 1 sec signal          
     │   ├── Counter_5bit.vhdl   # Counter (0-31)                
     │   └── 7segment.vhdl       # Controls the seven-segment displays       
     └── ...
