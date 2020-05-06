@@ -26,12 +26,8 @@ A RTL Structure of the design is
 
     .
     ├── ...
-    ├── alu.vhdl   # Top Level Entity
-    │   ├── and_gate.vhdl                
-    │   ├── or_gate.vhdl                 
-    │   ├── seven_segment_decoder.vhdl  
-    │   ├── adder.vhdl                  
-    │   │   └──  adder_unit.vhdl      
-    │   └── subtractor_unit              
-    │       └──  adder_unit.vhdl       
+    ├── Traffic_light.vhdl   # Top Level Entity
+    │   ├── Count1S.vhdl                
+    │   ├── Counter_5bit.vhdl   # Counter (0-31)                
+    │   └── 7segment.vhdl       # Controls the seven-segment displays       
     └── ...
