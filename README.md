@@ -3,7 +3,7 @@
 In this project we implement a Traffic light Controller and prototype it on the DE1-SoC board.
 
 
-*** Design Specification
+### Design Specification
 Starting as the N-S left-turn lights turn green:
 1. The N-S left-turn lights stay green for 10 seconds. Proceed to step 2.
 2. The N-S lights stay green for 20 seconds. Proceed to step 3.
@@ -20,8 +20,10 @@ Starting as the E-W lights turn red:
 Apart from these specifications, two extra requirements are: 
 * Display the current state on the onboard seven-segment display.
 * Display the remaining time of the current state on the seven-segment displays.
+* Car waiting is represented by any of the onboard switches. 
 
 A RTL Structure of the design is
+
     .
     ├── ...
     ├── alu.vhdl   # Top Level Entity
