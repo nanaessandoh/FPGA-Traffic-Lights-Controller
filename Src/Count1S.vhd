@@ -7,26 +7,26 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity Count1S is
-  port( clk, en: in std_logic;
-        cnt50M: out std_logic);
+  port( CLK, EN: in std_logic;
+        CNT50M: out std_logic);
 end Count1S;
 
 architecture behav of Count1S is
-  signal cnt: std_logic_vector(25 downto 0) := "00000000000000000000000000";
+  signal CNT: std_logic_vector(25 downto 0) := "00000000000000000000000000";
 begin
 
   -- Clock the counter
-  process (clk)
+  process (CLK)
   begin
-    if (clk'event) and (clk = '1') then
-	if (en = '1') then
-       if (cnt = "10111110101111000010000000") then
+    if (CLK'event) and (CLK = '1') then
+	if (EN = '1') then
+       if (CNT = "10111110101111000010000000") then
        --   if (cnt = "00000000000000000000000010") then   -- Uncomment this line for testbench
-	     cnt50M <= '1';
-          cnt <= "00000000000000000000000000";
+	     CNT50M <= '1';
+          CNT <= "00000000000000000000000000";
         else
-          cnt50M <= '0';
-          cnt <= cnt + '1';
+          CNT50M <= '0';
+          CNT <= CNT + '1';
 	  end if;
         end if;
       end if;

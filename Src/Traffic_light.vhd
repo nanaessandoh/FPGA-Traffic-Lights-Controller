@@ -6,9 +6,9 @@ use ieee.std_logic_unsigned.all;
 entity traffic_light is
   port( 
 	-- Input Signals (SW0 - Car Waiting)
-	clk, car_waiting: in std_logic;
+	clk, car_Waiting: in std_logic;
 	-- Output Signals
-	nslgreen, nsgreen,nsred, nsyellow, ewlgreen, ewgreen, ewyellow, ewred: out std_logic;
+	nslGreen, nsGreen,nsRed, nsYellow, ewlGreen, ewGreen, ewYellow, ewRed: out std_logic;
 	-- LEDs to show Output Signals
         LEDR: out std_logic_vector(8 downto 0);	
 	-- HEX to Display Timer
@@ -20,8 +20,8 @@ architecture behav of traffic_light is
 
 	-- 1 Second Generator
   	component Count1S 
- 	 port( clk, en: in std_logic;
-        cnt50M: out std_logic);
+ 	 port( CLK, EN: in std_logic;
+        CNT50M: out std_logic);
 	end component;
 
 	-- 5 Bit Counter
@@ -77,7 +77,7 @@ begin
  	 end process;
 
 	-- Process to determine Next State
-  	process (current_state, time_sec, count, car_waiting)
+  	process (current_state, time_sec, count, car_Waiting)
   	begin
  		case current_state is
 
@@ -129,7 +129,7 @@ begin
 		-- EW_GREEN
 		when EW_GREEN =>
 		if (count = "00000") then
-		    if (car_waiting = '0') then
+		    if (car_Waiting = '0') then
 			next_state <= EW_GREENEXT;
 			time_sec <= "01111";
 			Cstate <= "0110";
@@ -145,7 +145,7 @@ begin
 
 		-- EW_GREENEXT
 		when EW_GREENEXT =>
-		if (count = "00000") or (car_waiting = '1') then
+		if (count = "00000") or (car_Waiting = '1') then
 			next_state <= EW_YELLOW;
 			time_sec <= "00111";
 			Cstate <= "0101"; 
@@ -261,17 +261,17 @@ begin
 
 
 	-- Assign Output Signals 
-	nslgreen <= nsl_g;
-	nsgreen <= ns_g;
-	nsred <= ns_r;
-	nsyellow <= ns_y;
-	ewlgreen <= ewl_g;
-	ewgreen <= ew_g;
-	ewyellow <= ew_y;
-	ewred <= ew_r;
+	nslGreen <= nsl_g;
+	nsGreen <= ns_g;
+	nsRed <= ns_r;
+	nsYellow <= ns_y;
+	ewlGreen <= ewl_g;
+	ewGreen <= ew_g;
+	ewYellow <= ew_y;
+	ewRed <= ew_r;
 
 	-- Assign Signals to LEDs
-	LEDR(0) <= car_waiting;
+	LEDR(0) <= car_Waiting;
 	LEDR(1) <= nsl_g;
 	LEDR(2) <= ns_g;
 	LEDR(3) <= ns_r;
